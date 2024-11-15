@@ -1,0 +1,158 @@
+.content {
+    background-color: #f7f8fc;
+}
+
+.reception-detail-container {
+    background-color: white;
+}
+
+.reception-detail-title {
+    text-align: center;
+    padding: 20px 0;
+}
+
+.reception-detail-title-text {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.reception-detail-body {
+    max-width: 976px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.reception-detail-body-item {
+    width: 50%;
+}
+
+.reception-detail-body-item:first-child {
+    border-right: 1.5px solid #eeedee;
+}
+
+.reception-detail-right .reception-detail-wrap-input {
+    margin-left: auto;
+}
+
+.reception-detail-wrap-input {
+    display: flex;
+    flex-direction: column;
+    width: 76%;
+    margin-bottom: 20px;
+}
+
+.reception-detail-wrap-checkbox {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.reception-detail-body-checkbox {
+    margin-right: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.reception-detail-label {
+    margin-bottom: 2px;
+    font-weight: 700;
+}
+
+.reception-detail-label-checkbox {
+    font-weight: 700;
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.custom-checkbox {
+    position: relative;
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    margin-right: 10px;
+    border: 1.12px solid #a4a3a3;
+    box-shadow: 0.56px 1.96px 1.12px 0px rgba(0, 0, 0, 0.25);
+}
+
+.custom-checkbox::after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+input[type="checkbox"]:checked + .custom-checkbox::after {
+    display: block;
+}
+
+.custom-checkbox::after {
+    left: 7px;
+    top: 2px;
+    width: 6.5px;
+    height: 12px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.reception-detail-input {
+    height: 40px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    padding-left: 10px;
+}
+
+.reception-detail-input:focus {
+    outline: none;
+}
+
+.reception-detail-wrap-file {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #d9d9d9;
+}
+
+.reception-detail-wrap-file img {
+    width: 42px;
+    height: 42px;
+}
+
+.reception-detail-text-file {
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: underline;
+    margin: 0 0 0 15px;
+    cursor: pointer;
+}
+
+.reception-detail-footer {
+    text-align: center;
+    margin-top: 80px;
+    padding-bottom: 40px;
+}
+
+.reception-detail-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    width: 122px;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #3f494e;
+    color: white;
+}
+
+.reception-detail-btn:hover {
+    color: white;
+    text-decoration: none;
+}

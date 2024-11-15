@@ -1,0 +1,37 @@
+version: 0.2
+phases:
+  pre_build:
+    commands:
+      - echo pre_build started on `date`
+      - echo Defined1 variables...
+      - ECR_URI=$ECR_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com
+      - REPOSITORY_NGINX_URI=${ECR_URI}/${NGINX_ECR_REPOSITORY_NAME}
+      - REPOSITORY_PHP_URI=${ECR_URI}/${PHP_ECR_REPOSITORY_NAME}
+      - IMAGE_TAG=$(echo $CODEBUILD_BUILD_NUMBER | cut -c 1-7)
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region $AWS_DEFAULT_REGION | docker login --username AWS --password-stdin $ECR_URI
+      - echo $DOCKER_HUB_PASSWORD | docker login --username $DOCKER_HUB_ID --password-stdin
+  build:
+    commands:
+      - echo Build started on `date`
+      - echo Building the Docker image...
+      - DOCKER_BUILDKIT=1 docker build --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from $REPOSITORY_NGINX_URI:latest --tag $REPOSITORY_NGINX_URI:latest --file docker/nginx/Dockerfile .
+      - docker tag $REPOSITORY_NGINX_URI:latest $REPOSITORY_NGINX_URI:$IMAGE_TAG
+
+      - DOCKER_BUILDKIT=1 docker build --build-arg BUILDKIT_INLINE_CACHE=1 --cache-from $REPOSITORY_PHP_URI:latest --tag $REPOSITORY_PHP_URI:latest --file docker/phpfpm/Dockerfile .
+      - docker tag $REPOSITORY_PHP_URI:latest $REPOSITORY_PHP_URI:$IMAGE_TAG
+  post_build:
+    commands:
+      - echo Build completed on `date`
+      - echo Pushing the Docker images...
+      - docker push $REPOSITORY_NGINX_URI:latest
+      - docker push $REPOSITORY_NGINX_URI:$IMAGE_TAG
+      - docker push $REPOSITORY_PHP_URI:latest
+      - docker push $REPOSITORY_PHP_URI:$IMAGE_TAG
+      - echo Writing image definitions file...
+      - echo $REPOSITORY_NGINX_URI:$IMAGE_TAG
+      - echo $REPOSITORY_PHP_URI:$IMAGE_TAG
+      - printf '[{"name":"nginx","imageUri":"%s"},{"name":"phpfpm","imageUri":"%s"}]' $REPOSITORY_NGINX_URI:$IMAGE_TAG $REPOSITORY_PHP_URI:$IMAGE_TAG > imagedefinitions.json
+artifacts:
+    files: imagedefinitions.json
+

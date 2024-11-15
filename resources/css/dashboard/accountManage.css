@@ -1,0 +1,111 @@
+.btn-delete-account {
+    background-color: #dee5f3;
+    color: #d93845;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.btn-close-modal {
+    width: 16px;
+    position: absolute;
+    top: 6px;
+    right: 12px;
+}
+
+.modal-delete-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.btn-delete {
+    width: 86px;
+    color: white;
+    font-size: 17px;
+    font-weight: 500;
+    margin: 0 16px;
+}
+
+.btn-delete-cancel {
+    background-color: #3f494e;
+}
+
+.btn-delete-submit {
+    background-color: #1bc4f8;
+}
+
+.modal-header-create-account {
+    position: relative;
+    justify-content: center;
+    padding-top: 40px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid #a4a3a3;
+}
+
+.modal-create-edit-body {
+    margin: 20px 35px;
+}
+
+.modal-create-edit-title {
+    font-size: 26px;
+    font-weight: 700;
+}
+
+.modal-body-label {
+    flex-shrink: 0;
+    width: 32%;
+}
+
+.modal-sub-text {
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.modal-body-wrap-input {
+    width: 68%;
+}
+
+.modal-create-edit-input {
+    height: 40px;
+    padding-left: 10px;
+    border: 1px solid #d9d9d9;
+    border-radius: 2px;
+    color: #495057;
+}
+
+.modal-create-edit-footer {
+    border: none;
+    padding-bottom: 40px;
+}
+
+.btn-create-edit-cancel {
+    width: 120px;
+    background-color: #3f494e;
+}
+.text-red-modal {
+    color: #d61529;
+    font-size: 12px;
+    margin-bottom: 20px;
+}
+
+/* .pagination .page-link {
+    color: #333;
+    background-color: transparent;
+    border: 1px solid #ddd;
+    transition: background-color 0.3s, color 0.3s;
+} */
+
+/* .padding-a {
+    width: 43px;
+    height: 38px;
+    text-align: center;
+    padding: 7px !important;
+} */
+
+.icon-next {
+    width: 15px;
+    height: 15px;
+}
+
+.icon-back-disabled {
+    background-color: #ddd;
+}
