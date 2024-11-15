@@ -1,0 +1,1 @@
+export const maxLengthReasonCancel = 20;
